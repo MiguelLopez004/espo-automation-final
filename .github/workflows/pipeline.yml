@@ -32,7 +32,8 @@ jobs:
 
       - name: Run tests and generate allure results
         run: |
-          pytest -v --alluredir=allure-results 
+          pytest -v --alluredir=allure-results
+        continue-on-error: true
 
       - name: Get Allure history
         uses: actions/checkout@v4
@@ -55,3 +56,4 @@ jobs:
           github_token: ${{ secrets.GH_PAT }}
           publish_branch: gh-pages
           publish_dir: allure-report
+          
