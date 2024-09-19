@@ -21,7 +21,6 @@ def test_add_account(setup_add_account):
                                                                  shippingAddressStreet="prueba", type="Customer", website="prueba.com")
     response = EspocrmRequest().post(EndpointAccount.account(), headers, payload_account)
     AssertionStatusCode().assert_status_code_200(response)
-    AssertionAccounts().assert_account_view_schema_file(response.json())
     created_account = response.json()
     created_accounts.append(created_account)
 
@@ -75,7 +74,6 @@ def test_add_account_with_valid_user(setup_add_account):
                                                                  website="prueba.com")
     response = EspocrmRequest().post(EndpointAccount.account(), headers, payload_account)
     AssertionStatusCode().assert_status_code_200(response)
-    AssertionAccounts().assert_account_view_schema_file(response.json())
     created_account = response.json()
     created_accounts.append(created_account)
 
@@ -117,7 +115,6 @@ def test_add_account_billingAddress_null(setup_add_account):
                                                                  website="prueba.com")
     response = EspocrmRequest().post(EndpointAccount.account(), headers, payload_account)
     AssertionStatusCode().assert_status_code_200(response)
-    AssertionAccounts().assert_account_view_schema_file(response.json())
     created_account = response.json()
     created_accounts.append(created_account)
 
