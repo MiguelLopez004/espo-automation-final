@@ -12,10 +12,18 @@ from src.resources.authentifications.authentification import Auth
 @pytest.mark.functional
 def test_edit_account_all_data(setup_edit_account):
     headers, account = setup_edit_account
-    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva",
+    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva", billingAddressCity="prueba",
+                                                                 billingAddressCountry="prueba",
+                                                                 billingAddressPostalCode="prueba",
+                                                                 billingAddressState="prueba",
+                                                                 billingAddressStreet="prueba",
                                                                  description="prueba", emailAddress="prueba@prueba.com",
                                                                  industry="Architecture", phoneNumber="+15555555555",
-                                                                 type="Customer",
+                                                                 shippingAddressCity="prueba",
+                                                                 shippingAddressCountry="prueba",
+                                                                 shippingAddressPostalCode="prueba",
+                                                                 shippingAddressState="prueba",
+                                                                 shippingAddressStreet="prueba", type="Customer",
                                                                  website="prueba.com")
     response = EspocrmRequest().put(EndpointAccount.view(account['id']), headers, payload_account)
     AssertionStatusCode().assert_status_code_200(response)
