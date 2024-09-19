@@ -25,7 +25,7 @@ class EndpointAccount:
 
     @classmethod
     def list(cls,
-             select="billingAddressCountry,type, website,name",
+             select="billingAddressCountry,type,website,name",
              maxSize=20, offset=0, orderBy="createdAt", order="desc"):
         return cls.build_url_list(Endpoint.BASE_ACCOUNT.value, select, maxSize, offset, orderBy, order)
 

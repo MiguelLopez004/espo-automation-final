@@ -5,7 +5,7 @@ from src.resources.payloads.payloads_account import PayloadAccount
 from src.resources.call_request.account import AccountCall
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def setup_teardown_list_account(get_headers):
     headers = Auth().get_valid_user_headers(get_headers)
 
