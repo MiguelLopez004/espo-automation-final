@@ -46,7 +46,7 @@ def test_view_account_incorrect_authorization(setup_account_view_account, get_he
 
 @pytest.mark.regression
 @pytest.mark.functional
-def test_view_account_id_not_exists(get_headers):
-    headers = Auth().get_valid_user_headers(get_headers)
+def test_view_account_id_not_exists(setup_account_view_account):
+    headers, account = setup_account_view_account
     response = EspocrmRequest().get(EndpointAccount.view(account_id="id_no_existente"), headers)
     AssertionStatusCode().assert_status_code_404(response)
