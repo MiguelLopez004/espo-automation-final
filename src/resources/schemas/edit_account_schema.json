@@ -10,19 +10,7 @@
     "deleted": {
       "type": "boolean"
     },
-    "salutationName": {
-      "type": ["string", "null"]
-    },
-    "firstName": {
-      "type": ["string", "null"]
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "title": {
-      "type": ["string", "null"]
-    },
-    "description": {
+    "website": {
       "type": ["string", "null"]
     },
     "emailAddress": {
@@ -31,28 +19,46 @@
     "phoneNumber": {
       "type": ["string", "null"]
     },
-    "doNotCall": {
-      "type": "boolean"
-    },
-    "addressStreet": {
+    "type": {
       "type": ["string", "null"]
     },
-    "addressCity": {
+    "industry": {
       "type": ["string", "null"]
     },
-    "addressState": {
+    "sicCode": {
       "type": ["string", "null"]
     },
-    "addressCountry": {
+    "billingAddressStreet": {
       "type": ["string", "null"]
     },
-    "addressPostalCode": {
+    "billingAddressCity": {
       "type": ["string", "null"]
     },
-    "accountIsInactive": {
-      "type": ["boolean", "null"]
+    "billingAddressState": {
+      "type": ["string", "null"]
     },
-    "accountType": {
+    "billingAddressCountry": {
+      "type": ["string", "null"]
+    },
+    "billingAddressPostalCode": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressStreet": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressCity": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressState": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressCountry": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressPostalCode": {
+      "type": ["string", "null"]
+    },
+    "description": {
       "type": ["string", "null"]
     },
     "createdAt": {
@@ -61,10 +67,10 @@
     "modifiedAt": {
       "type": "string"
     },
-    "hasPortalUser": {
-      "type": "boolean"
+    "electronicAddressScheme": {
+      "type": ["string", "null"]
     },
-    "middleName": {
+    "electronicAddressIdentifier": {
       "type": ["string", "null"]
     },
     "emailAddressIsOptedOut": {
@@ -81,33 +87,11 @@
     },
     "emailAddressData": {
       "type": "array",
-      "items": {
-        "type": "object"
-      }
+      "items": {}
     },
     "phoneNumberData": {
       "type": "array",
-      "items": {
-        "type": "object"
-      }
-    },
-    "accountId": {
-      "type": ["string", "null"]
-    },
-    "accountName": {
-      "type": ["string", "null"]
-    },
-    "accountsIds": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "accountsNames": {
-      "type": "object"
-    },
-    "accountsColumns": {
-      "type": "object"
+      "items": {}
     },
     "campaignId": {
       "type": ["string", "null"]
@@ -135,18 +119,10 @@
     },
     "teamsIds": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "teamsNames": {
       "type": "object"
-    },
-    "portalUserId": {
-      "type": ["string", "null"]
-    },
-    "portalUserName": {
-      "type": ["string", "null"]
     },
     "originalLeadId": {
       "type": ["string", "null"]
@@ -154,37 +130,82 @@
     "originalLeadName": {
       "type": ["string", "null"]
     },
+    "priceBookId": {
+      "type": ["string", "null"]
+    },
+    "priceBookName": {
+      "type": ["string", "null"]
+    },
     "isFollowed": {
       "type": "boolean"
     },
     "followersIds": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "followersNames": {
       "type": "object"
+    },
+    "isStarred": {
+      "type": "boolean"
+    },
+    "supplierId": {
+      "type": ["string", "null"]
+    },
+    "supplierName": {
+      "type": ["string", "null"]
     }
   },
   "required": [
     "id",
     "name",
     "deleted",
-    "lastName",
-    "doNotCall",
+    "website",
+    "emailAddress",
+    "phoneNumber",
+    "type",
+    "industry",
+    "sicCode",
+    "billingAddressStreet",
+    "billingAddressCity",
+    "billingAddressState",
+    "billingAddressCountry",
+    "billingAddressPostalCode",
+    "shippingAddressStreet",
+    "shippingAddressCity",
+    "shippingAddressState",
+    "shippingAddressCountry",
+    "shippingAddressPostalCode",
+    "description",
     "createdAt",
     "modifiedAt",
-    "hasPortalUser",
+    "electronicAddressScheme",
+    "electronicAddressIdentifier",
+    "emailAddressIsOptedOut",
+    "emailAddressIsInvalid",
+    "phoneNumberIsOptedOut",
+    "phoneNumberIsInvalid",
     "emailAddressData",
     "phoneNumberData",
-    "accountsIds",
-    "accountsNames",
-    "accountsColumns",
+    "campaignId",
+    "campaignName",
     "createdById",
     "createdByName",
+    "modifiedById",
+    "modifiedByName",
+    "assignedUserId",
+    "assignedUserName",
+    "teamsIds",
+    "teamsNames",
+    "originalLeadId",
+    "originalLeadName",
+    "priceBookId",
+    "priceBookName",
     "isFollowed",
     "followersIds",
-    "followersNames"
+    "followersNames",
+    "isStarred",
+    "supplierId",
+    "supplierName"
   ]
 }

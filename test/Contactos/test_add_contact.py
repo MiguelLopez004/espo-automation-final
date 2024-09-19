@@ -1,4 +1,4 @@
-"""import pytest
+import pytest
 from src.transport.endpoint_contact import EndpointContacts
 from src.resources.payloads.payloads_contacts import PayloadContact
 from src.transport.api_request import EspocrmRequest
@@ -166,4 +166,3 @@ def test_add_contact_emailAddress_null(setup_add_contact):
     AssertionStatusCode().assert_status_code_400(response)
     created_contact = response.json()
     created_contacts.append(created_contact)
-"""

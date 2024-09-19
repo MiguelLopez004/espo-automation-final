@@ -10,7 +10,7 @@ class AccountCall:
 
     @classmethod
     def create(cls, headers, payload):
-        response = EspocrmRequest().post(EndpointAccount.contact(), headers, payload)
+        response = EspocrmRequest().post(EndpointAccount.account(), headers, payload)
         return response.json()
 
     @classmethod

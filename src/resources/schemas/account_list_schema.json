@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "total": {
+      "type": "integer"
+    },
+    "list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": ["string", "null"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "website": {
+            "type": ["string", "null"]
+          },
+          "type": {
+            "type": ["string", "null"]
+          },
+          "billingAddressCountry": {
+            "type": ["string", "null"]
+          },
+          "createdAt": {
+            "type": ["string", "null"]
+          },
+          "createdById": {
+            "type": ["string", "null"]
+          },
+          "assignedUserId": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": ["name"]
+      }
+    }
+  },
+  "required": ["total", "list"]
+}

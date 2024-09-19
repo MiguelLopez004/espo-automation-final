@@ -1,4 +1,4 @@
-"""import pytest
+import pytest
 
 from src.assertions.contacts_assertions import AssertionContacts
 from src.transport.endpoint_contact import EndpointContacts
@@ -115,4 +115,3 @@ def test_edit_contact_address_invalid(setup_edit_contact):
     response = EspocrmRequest().put(EndpointContacts.view(contact['id']), headers, payload)
     AssertionStatusCode().assert_status_code_400(response)
     AssertionContacts().assert_edit_contact_schema_schema_file(response.json())
-"""
