@@ -1,0 +1,37 @@
+name: EspoCRM Pipeline Execution Test Final Module
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    types: [ opened, reopened, synchronize ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+          pip install requests
+          pip install jsonschema
+          pip install pytest-html
+      - name: Run test and generate report
+        run: |
+          pytest -v --html=index.html --self-contained-html
+      - name: Commit and push
+        if: ${{ github.event_name == 'push' }}
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update report
+          commit_user_name: MiguelLopez004 [GitHub Actions]
+          commit_user_email: heredero0409@gmail.com
+          commit_author: MiguelLopez004

@@ -5,7 +5,7 @@ from src.assertions.schema_assertions import AssertionSchemas
 class AssertionAccounts:
     @staticmethod
     def assert_check_orden(response_json, order):
-        list = [contact['name'] for contact in response_json['list']]
+        list = [account['name'] for account in response_json['list']]
         if order == "asc":
             assert list == sorted(list), "The equipment list is not in asc order"
         elif order == "desc":
@@ -27,12 +27,12 @@ class AssertionAccounts:
 
     @staticmethod
     def assert_check_order_asc(response_json):
-        lists = [contact['name'] for contact in response_json['list']]
+        lists = [account['name'] for account in response_json['list']]
         assert lists == sorted(lists), "The contact list is not in ascending order"
 
     @staticmethod
     def assert_check_order_desc(response_json):
-        lists = [contact['name'] for contact in response_json['list']]
+        lists = [account['name'] for account in response_json['list']]
         assert lists == sorted(lists, reverse=True), "The contact list is not in descending order"
 
     @staticmethod
@@ -50,14 +50,6 @@ class AssertionAccounts:
     @staticmethod
     def assert_account_list_without_select_schema_file(response):
         return AssertionSchemas().validate_json_schema(response, "account_list_without_select_schema.json")
-
-    @staticmethod
-    def assert_add_account_schema_schema_file(payload):
-        return AssertionSchemas().validate_json_schema(payload, "add_account_schema.json")
-
-    @staticmethod
-    def assert_edit_account_schema_schema_file(payload):
-        return AssertionSchemas().validate_json_schema(payload, "edit_account_schema.json")
 
     @staticmethod
     def assert_account_view_schema_file(payload):

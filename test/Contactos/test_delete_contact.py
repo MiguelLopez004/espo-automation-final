@@ -1,4 +1,4 @@
-"""import pytest
+import pytest
 import random
 import string
 from src.resources.authentifications.authentification import Auth
@@ -44,4 +44,4 @@ def test_delete_contact_valid_with_auth_incorrect(setup_create_contact, get_head
     headers = Auth().get_unauthorized_users_user_headers(get_headers)
     response = EspocrmRequest().delete(EndpointContacts.view(contact['id']), headers)
     AssertionStatusCode().assert_status_code_401(response)
-    ContactCall().delete(headersAux, contact['id'])"""
+    ContactCall().delete(headersAux, contact['id'])

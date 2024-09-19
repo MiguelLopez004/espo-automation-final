@@ -10,19 +10,7 @@
     "deleted": {
       "type": "boolean"
     },
-    "salutationName": {
-      "type": ["string", "null"]
-    },
-    "firstName": {
-      "type": ["string", "null"]
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "title": {
-      "type": ["string", "null"]
-    },
-    "description": {
+    "website": {
       "type": ["string", "null"]
     },
     "emailAddress": {
@@ -31,28 +19,46 @@
     "phoneNumber": {
       "type": ["string", "null"]
     },
-    "doNotCall": {
+    "type": {
+      "type": ["string", "null"]
+    },
+    "industry": {
+      "type": ["string", "null"]
+    },
+    "contactIsInactive": {
       "type": "boolean"
     },
-    "addressStreet": {
+    "billingAddressStreet": {
       "type": ["string", "null"]
     },
-    "addressCity": {
+    "billingAddressCity": {
       "type": ["string", "null"]
     },
-    "addressState": {
+    "billingAddressState": {
       "type": ["string", "null"]
     },
-    "addressCountry": {
+    "billingAddressCountry": {
       "type": ["string", "null"]
     },
-    "addressPostalCode": {
+    "billingAddressPostalCode": {
       "type": ["string", "null"]
     },
-    "accountIsInactive": {
-      "type": ["boolean", "null"]
+    "shippingAddressStreet": {
+      "type": ["string", "null"]
     },
-    "accountType": {
+    "shippingAddressCity": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressState": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressCountry": {
+      "type": ["string", "null"]
+    },
+    "shippingAddressPostalCode": {
+      "type": ["string", "null"]
+    },
+    "description": {
       "type": ["string", "null"]
     },
     "createdAt": {
@@ -61,11 +67,8 @@
     "modifiedAt": {
       "type": "string"
     },
-    "hasPortalUser": {
+    "targetListIsOptedOut": {
       "type": "boolean"
-    },
-    "middleName": {
-      "type": ["string", "null"]
     },
     "emailAddressIsOptedOut": {
       "type": ["boolean", "null"]
@@ -81,36 +84,11 @@
     },
     "emailAddressData": {
       "type": "array",
-      "items": {
-        "type": "object"
-      }
+      "items": {}
     },
     "phoneNumberData": {
       "type": "array",
-      "items": {
-        "type": "object"
-      }
-    },
-    "accountId": {
-      "type": ["string", "null"]
-    },
-    "accountName": {
-      "type": ["string", "null"]
-    },
-    "accountsIds": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "accountsNames": {
-      "type": "object"
-    },
-    "accountsColumns": {
-      "type": "object"
-    },
-    "campaignId": {
-      "type": ["string", "null"]
+      "items": {}
     },
     "campaignName": {
       "type": ["string", "null"]
@@ -120,9 +98,6 @@
     },
     "createdByName": {
       "type": "string"
-    },
-    "modifiedById": {
-      "type": ["string", "null"]
     },
     "modifiedByName": {
       "type": ["string", "null"]
@@ -135,23 +110,12 @@
     },
     "teamsIds": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "teamsNames": {
       "type": "object"
     },
-    "portalUserId": {
-      "type": ["string", "null"]
-    },
-    "portalUserName": {
-      "type": ["string", "null"]
-    },
-    "originalLeadId": {
-      "type": ["string", "null"]
-    },
-    "originalLeadName": {
+    "priceBookName": {
       "type": ["string", "null"]
     },
     "isFollowed": {
@@ -159,32 +123,30 @@
     },
     "followersIds": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "followersNames": {
       "type": "object"
+    },
+    "isStarred": {
+      "type": "boolean"
     }
   },
   "required": [
     "id",
     "name",
     "deleted",
-    "lastName",
-    "doNotCall",
+    "contactIsInactive",
     "createdAt",
     "modifiedAt",
-    "hasPortalUser",
+    "targetListIsOptedOut",
     "emailAddressData",
     "phoneNumberData",
-    "accountsIds",
-    "accountsNames",
-    "accountsColumns",
     "createdById",
     "createdByName",
     "isFollowed",
     "followersIds",
-    "followersNames"
+    "followersNames",
+    "isStarred"
   ]
 }

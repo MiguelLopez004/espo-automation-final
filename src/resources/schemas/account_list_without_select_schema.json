@@ -1,0 +1,144 @@
+{
+  "type": "object",
+  "properties": {
+    "total": {
+      "type": "integer"
+    },
+    "list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": ["string", "null"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "deleted": {
+            "type": ["boolean", "null"]
+          },
+          "website": {
+            "type": ["string", "null"]
+          },
+          "emailAddress": {
+            "type": ["string", "null"]
+          },
+          "phoneNumber": {
+            "type": ["string", "null"]
+          },
+          "type": {
+            "type": ["string", "null"]
+          },
+          "industry": {
+            "type": ["string", "null"]
+          },
+          "sicCode": {
+            "type": ["string", "null"]
+          },
+          "billingAddressStreet": {
+            "type": ["string", "null"]
+          },
+          "billingAddressCity": {
+            "type": ["string", "null"]
+          },
+          "billingAddressState": {
+            "type": ["string", "null"]
+          },
+          "billingAddressCountry": {
+            "type": ["string", "null"]
+          },
+          "billingAddressPostalCode": {
+            "type": ["string", "null"]
+          },
+          "shippingAddressStreet": {
+            "type": ["string", "null"]
+          },
+          "shippingAddressCity": {
+            "type": ["string", "null"]
+          },
+          "shippingAddressState": {
+            "type": ["string", "null"]
+          },
+          "shippingAddressCountry": {
+            "type": ["string", "null"]
+          },
+          "shippingAddressPostalCode": {
+            "type": ["string", "null"]
+          },
+          "description": {
+            "type": ["string", "null"]
+          },
+          "createdAt": {
+            "type": ["string", "null"]
+          },
+          "modifiedAt": {
+            "type": ["string", "null"]
+          },
+          "electronicAddressScheme": {
+            "type": ["string", "null"]
+          },
+          "electronicAddressIdentifier": {
+            "type": ["string", "null"]
+          },
+          "emailAddressIsOptedOut": {
+            "type": ["boolean", "null"]
+          },
+          "emailAddressIsInvalid": {
+            "type": ["boolean", "null"]
+          },
+          "phoneNumberIsOptedOut": {
+            "type": ["boolean", "null"]
+          },
+          "phoneNumberIsInvalid": {
+            "type": ["boolean", "null"]
+          },
+          "campaignId": {
+            "type": ["string", "null"]
+          },
+          "campaignName": {
+            "type": ["string", "null"]
+          },
+          "createdById": {
+            "type": ["string", "null"]
+          },
+          "createdByName": {
+            "type": ["string", "null"]
+          },
+          "modifiedById": {
+            "type": ["string", "null"]
+          },
+          "modifiedByName": {
+            "type": ["string", "null"]
+          },
+          "assignedUserId": {
+            "type": ["string", "null"]
+          },
+          "assignedUserName": {
+            "type": ["string", "null"]
+          },
+          "originalLeadId": {
+            "type": ["string", "null"]
+          },
+          "originalLeadName": {
+            "type": ["string", "null"]
+          },
+          "priceBookId": {
+            "type": ["string", "null"]
+          },
+          "priceBookName": {
+            "type": ["string", "null"]
+          },
+          "supplierId": {
+            "type": ["string", "null"]
+          },
+          "supplierName": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": ["name"]
+      }
+    }
+  },
+  "required": ["total", "list"]
+}

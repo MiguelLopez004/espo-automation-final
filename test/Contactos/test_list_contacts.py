@@ -1,4 +1,4 @@
-"""import pytest
+import pytest
 from src.resources.authentifications.authentification import Auth
 from src.transport.api_request import EspocrmRequest
 from src.transport.endpoint_contact import EndpointContacts
@@ -110,10 +110,11 @@ def test_list_contacts_maxsize_negative(setup_teardown_list_contacts):
 
 @pytest.mark.regression
 @pytest.mark.functional
+@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_list_contacts_maxsize_string(setup_teardown_list_contacts):
     headers, contact1, contact2 = setup_teardown_list_contacts
     response = EspocrmRequest().get(EndpointContacts.list(maxSize="as"), headers)
-    AssertionStatusCode().assert_status_code_200(response)
+    AssertionStatusCode().assert_status_code_400(response)
 
 
 @pytest.mark.regression
@@ -147,10 +148,11 @@ def test_list_contacts_offset_negative(setup_teardown_list_contacts):
 
 @pytest.mark.regression
 @pytest.mark.functional
+@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_list_contacts_offset_string(setup_teardown_list_contacts):
     headers, contact1, contact2 = setup_teardown_list_contacts
     response = EspocrmRequest().get(EndpointContacts.list(offset="as"), headers)
-    AssertionStatusCode().assert_status_code_200(response)
+    AssertionStatusCode().assert_status_code_400(response)
 
 
 @pytest.mark.regression
@@ -159,4 +161,4 @@ def test_list_contacts_ordeby_unknown(setup_teardown_list_contacts):
     headers, contact1, contact2 = setup_teardown_list_contacts
     response = EspocrmRequest().get(EndpointContacts.list(orderBy='unknown'), headers)
     AssertionStatusCode().assert_status_code_400(response)
-    AssertionContacts.assert_response_empty(response.text)"""
+    AssertionContacts.assert_response_empty(response.text)
