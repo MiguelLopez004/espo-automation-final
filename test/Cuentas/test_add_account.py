@@ -12,20 +12,8 @@ from data.accounts import generate_account_data, create_account_data
 @pytest.mark.functional
 def test_add_account(setup_add_account):
     headers, created_accounts = setup_add_account
-<<<<<<< Updated upstream
-    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva", billingAddressCity= "prueba",
-                                                                 billingAddressCountry="prueba", billingAddressPostalCode="prueba",
-                                                                 billingAddressState="prueba", billingAddressStreet="prueba",
-                                                                 description="prueba", emailAddress="prueba@prueba.com",
-                                                                 industry="Architecture", phoneNumber="+15555555555",
-                                                                 shippingAddressCity="prueba", shippingAddressCountry="prueba",
-                                                                 shippingAddressPostalCode="prueba", shippingAddressState="prueba",
-                                                                 shippingAddressStreet="prueba", type="Customer", website="prueba.com")
-    response = EspocrmRequest().post(EndpointAccount.account(), headers, payload_account)
-=======
     data = create_account_data()
     response = EspocrmRequest().post(EndpointAccount.account(), headers, data)
->>>>>>> Stashed changes
     AssertionStatusCode().assert_status_code_200(response)
     AssertionAccounts().assert_account_view_schema_file(response.json())
     created_account = response.json()
@@ -104,25 +92,8 @@ def test_add_account_name_null(setup_add_account):
 @pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_add_account_phoneNumber_invalid(setup_add_account):
     headers, created_accounts = setup_add_account
-<<<<<<< Updated upstream
-    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva", billingAddressCity="prueba",
-                                                                 billingAddressCountry="prueba",
-                                                                 billingAddressPostalCode="prueba",
-                                                                 billingAddressState="prueba",
-                                                                 billingAddressStreet="prueba",
-                                                                 description="prueba", emailAddress="prueba@prueba.com",
-                                                                 industry="Architecture", phoneNumber="+1555sdfsd5555555",
-                                                                 shippingAddressCity="prueba",
-                                                                 shippingAddressCountry="prueba",
-                                                                 shippingAddressPostalCode="prueba",
-                                                                 shippingAddressState="prueba",
-                                                                 shippingAddressStreet="prueba", type="Customer",
-                                                                 website="prueba.com")
-    response = EspocrmRequest().post(EndpointAccount.account(), headers, payload_account)
-=======
     data = create_account_data(phoneNumber="+1555sdfsd5555555")
     response = EspocrmRequest().post(EndpointAccount.account(), headers, data)
->>>>>>> Stashed changes
     AssertionStatusCode().assert_status_code_400(response)
     created_account = response.json()
     created_accounts.append(created_account)
