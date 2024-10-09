@@ -1,17 +1,18 @@
 import pytest
-
+import json
 from src.resources.authentifications.authentification import Auth
 from src.resources.payloads.payloads_account import PayloadAccount
 from src.resources.call_request.account import AccountCall
+from data.accounts import generate_account_data
 
 
 @pytest.fixture(scope="module")
 def setup_teardown_list_account(get_headers):
     headers = Auth().get_valid_user_headers(get_headers)
 
-    payload_account_1 = PayloadAccount().build_payload_add_account(name="prueba")
-    payload_account_2 = PayloadAccount().build_payload_add_account(name="prueba1")
-    payload_account_3 = PayloadAccount().build_payload_add_account(name="prueba2")
+    payload_account_1 = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
+    payload_account_2 = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
+    payload_account_3 = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
 
     account1 = AccountCall().create(headers, payload_account_1)
     account2 = AccountCall().create(headers, payload_account_2)
@@ -44,7 +45,7 @@ def setup_add_account(get_headers):
 @pytest.fixture(scope="function")
 def setup_contact_delete_account(get_headers):
     headers = Auth().get_valid_user_headers(get_headers)
-    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva")
+    payload_account = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
     account = AccountCall().create(headers, payload_account)
     yield headers, account
 
@@ -52,7 +53,7 @@ def setup_contact_delete_account(get_headers):
 @pytest.fixture(scope="function")
 def setup_edit_account(get_headers):
     headers = Auth().get_valid_user_headers(get_headers)
-    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva")
+    payload_account = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
     account = AccountCall().create(headers, payload_account)
     yield headers, account
     AccountCall().delete(headers, account['id'])
@@ -61,7 +62,7 @@ def setup_edit_account(get_headers):
 @pytest.fixture(scope="function")
 def setup_create_account(get_headers):
     headers = Auth().get_valid_user_headers(get_headers)
-    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva")
+    payload_account = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
     account = AccountCall().create(headers, payload_account)
     yield headers, account
 
@@ -69,7 +70,7 @@ def setup_create_account(get_headers):
 @pytest.fixture(scope="function")
 def setup_account_view_account(get_headers):
     headers = Auth().get_valid_user_headers(get_headers)
-    payload_account = PayloadAccount().build_payload_add_account(name="prueba nueva")
+    payload_account = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
     account = AccountCall().create(headers, payload_account)
     yield headers, account
     AccountCall().delete(headers, account['id'])
