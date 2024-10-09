@@ -29,6 +29,7 @@ jobs:
           pip install jsonschema
           pip install pytest-html
           pip install allure-pytest 
+          pip install faker
 
       - name: Run tests and generate allure results
         run: |
