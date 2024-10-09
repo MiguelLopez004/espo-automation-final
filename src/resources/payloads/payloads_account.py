@@ -1,47 +1,38 @@
 import json
 
-
 class PayloadAccount:
 
     @staticmethod
-    def build_payload_add_account(
-            contactIsInactive=False, name=None, website=None, emailAddressData=None,
-            emailAddress=None, emailAddressIsOptedOut=None, emailAddressIsInvalid=None,
-            phoneNumberData=None, phoneNumber=None, phoneNumberIsOptedOut=None,
-            phoneNumberIsInvalid=None, billingAddressPostalCode=None, billingAddressStreet=None,
-            billingAddressState=None, billingAddressCity=None, billingAddressCountry=None,
-            shippingAddressPostalCode=None, shippingAddressStreet=None,
-            shippingAddressState=None, shippingAddressCity=None, shippingAddressCountry=None,
-            type=None, industry=None, description=None, assignedUserName=None,
-            assignedUserId=None, teamsIds=None, teamsNames=None):
+    def build_payload_add_account(account_data):
         payload = {
-            "contactIsInactive": contactIsInactive,
-            "name": name,
-            "website": website,
-            "emailAddressData": emailAddressData if emailAddressData is not None else [],
-            "emailAddress": emailAddress,
-            "emailAddressIsOptedOut": emailAddressIsOptedOut,
-            "emailAddressIsInvalid": emailAddressIsInvalid,
-            "phoneNumberData": phoneNumberData if phoneNumberData is not None else [],
-            "phoneNumber": phoneNumber,
-            "phoneNumberIsOptedOut": phoneNumberIsOptedOut,
-            "phoneNumberIsInvalid": phoneNumberIsInvalid,
-            "billingAddressPostalCode": billingAddressPostalCode,
-            "billingAddressStreet": billingAddressStreet,
-            "billingAddressState": billingAddressState,
-            "billingAddressCity": billingAddressCity,
-            "billingAddressCountry": billingAddressCountry,
-            "shippingAddressPostalCode": shippingAddressPostalCode,
-            "shippingAddressStreet": shippingAddressStreet,
-            "shippingAddressState": shippingAddressState,
-            "shippingAddressCity": shippingAddressCity,
-            "shippingAddressCountry": shippingAddressCountry,
-            "type": type,
-            "industry": industry,
-            "description": description,
-            "assignedUserName": assignedUserName,
-            "assignedUserId": assignedUserId,
-            "teamsIds": teamsIds if teamsIds is not None else [],
-            "teamsNames": teamsNames if teamsNames is not None else {}
+            "contactIsInactive": account_data.get("contactIsInactive", False),
+            "name": account_data.get("name"),
+            "website": account_data.get("website"),
+            "emailAddressData": account_data.get("emailAddressData", []),
+            "emailAddress": account_data.get("emailAddress"),
+            "emailAddressIsOptedOut": account_data.get("emailAddressIsOptedOut"),
+            "emailAddressIsInvalid": account_data.get("emailAddressIsInvalid"),
+            "phoneNumberData": account_data.get("phoneNumberData", []),
+            "phoneNumber": account_data.get("phoneNumber"),
+            "phoneNumberIsOptedOut": account_data.get("phoneNumberIsOptedOut"),
+            "phoneNumberIsInvalid": account_data.get("phoneNumberIsInvalid"),
+            "billingAddressPostalCode": account_data.get("billingAddressPostalCode"),
+            "billingAddressStreet": account_data.get("billingAddressStreet"),
+            "billingAddressState": account_data.get("billingAddressState"),
+            "billingAddressCity": account_data.get("billingAddressCity"),
+            "billingAddressCountry": account_data.get("billingAddressCountry"),
+            "shippingAddressPostalCode": account_data.get("shippingAddressPostalCode"),
+            "shippingAddressStreet": account_data.get("shippingAddressStreet"),
+            "shippingAddressState": account_data.get("shippingAddressState"),
+            "shippingAddressCity": account_data.get("shippingAddressCity"),
+            "shippingAddressCountry": account_data.get("shippingAddressCountry"),
+            "type": account_data.get("type"),
+            "industry": account_data.get("industry"),
+            "description": account_data.get("description"),
+            "assignedUserName": account_data.get("assignedUserName"),
+            "assignedUserId": account_data.get("assignedUserId"),
+            "teamsIds": account_data.get("teamsIds", []),
+            "teamsNames": account_data.get("teamsNames", {})
         }
-        return json.dumps(payload)
+
+        return json.dumps(payload, indent=4)
