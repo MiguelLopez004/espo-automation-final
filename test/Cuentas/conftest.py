@@ -45,7 +45,7 @@ def setup_contact_delete_account(get_headers):
     yield headers, account
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="class")
 def setup_edit_account(get_headers):
     headers = Auth().get_valid_user_headers(get_headers)
     payload_account = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
