@@ -12,24 +12,19 @@ def setup_teardown_list_account(get_headers):
 
     payload_account_1 = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
     payload_account_2 = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
-    payload_account_3 = PayloadAccount().build_payload_add_account(json.loads(generate_account_data()))
 
     account1 = AccountCall().create(headers, payload_account_1)
     account2 = AccountCall().create(headers, payload_account_2)
-    account3 = AccountCall().create(headers, payload_account_3)
 
     if isinstance(account1, list):
         account1 = account1[0]
     if isinstance(account2, list):
         account2 = account2[0]
-    if isinstance(account3, list):
-        account3 = account3[0]
 
-    yield headers, account1, account2, account3
+    yield headers, account1, account2
 
     AccountCall().delete(headers, account1['id'])
     AccountCall().delete(headers, account2['id'])
-    AccountCall().delete(headers, account3['id'])
 
 
 @pytest.fixture(scope="function")

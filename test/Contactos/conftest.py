@@ -23,7 +23,6 @@ def setup_teardown_list_contacts(get_headers):
 
     yield headers, contact1, contact2
 
-    print(contact1)
 
     ContactCall().delete(headers, contact1['id'])
     ContactCall().delete(headers, contact2['id'])

@@ -2,10 +2,8 @@ import pytest
 
 from src.assertions.contacts_assertions import AssertionContacts
 from src.transport.endpoint_contact import EndpointContacts
-from src.resources.payloads.payloads_contacts import PayloadContact
 from src.transport.api_request import EspocrmRequest
 from src.assertions.status_code_assertions import AssertionStatusCode
-from src.resources.authentifications.authentification import Auth
 from data.contacts import create_contact_data
 
 
