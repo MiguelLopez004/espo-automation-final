@@ -57,28 +57,23 @@ def generate_account_data():
     return json.dumps(account_data)
 
 
-def create_account_data(assignedUserId=None, assignedUserName=None, billingAddressCity=None,
+def create_account_data(billingAddressCity=None,
                         billingAddressCountry=None, billingAddressPostalCode=None, billingAddressState=None,
-                        billingAddressStreet=None, contactIsInactive=None, description=None, emailAddress=None,
-                        industry=None, name=None, phoneNumber=None, teamsIds=None, teamsNames=None,
+                        billingAddressStreet=None, description=None, emailAddress=None,
+                        industry=None, name=None, phoneNumber=None,
                         shippingAddressCity=None, shippingAddressCountry=None, shippingAddressPostalCode=None,
                         shippingAddressState=None, shippingAddressStreet=None, type=None, website=None):
     account_data = {
-        "assignedUserId": assignedUserId,
-        "assignedUserName": assignedUserName,
         "billingAddressCity": billingAddressCity,
         "billingAddressCountry": billingAddressCountry,
         "billingAddressPostalCode": billingAddressPostalCode,
         "billingAddressState": billingAddressState,
         "billingAddressStreet": billingAddressStreet,
-        "contactIsInactive": contactIsInactive,
         "description": description,
         "emailAddress": emailAddress,
         "industry": industry,
         "name": name or fake.company(),
         "phoneNumber": phoneNumber,
-        "teamsIds": teamsIds,
-        "teamsNames": teamsNames,
         "shippingAddressCity": shippingAddressCity,
         "shippingAddressCountry": shippingAddressCountry,
         "shippingAddressPostalCode": shippingAddressPostalCode,
