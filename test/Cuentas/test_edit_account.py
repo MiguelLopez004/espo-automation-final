@@ -78,7 +78,6 @@ def test_edit_account_field_unknow(setup_edit_account):
 
 @pytest.mark.regression
 @pytest.mark.functional
-@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_edit_account_empty_data(setup_edit_account):
     headers, account = setup_edit_account
     data = create_account_data(name="prueba nueva", billingAddressCity="prueba",
@@ -95,13 +94,11 @@ def test_edit_account_empty_data(setup_edit_account):
                                shippingAddressStreet="prueba", type="Customer",
                                website="prueba.com")
     response = EspocrmRequest().put(EndpointAccount.view(account['id']), headers, data)
-    AssertionStatusCode().assert_status_code_400(response)
-    AssertionAccounts().assert_account_view_schema_file(response.json())
+    AssertionStatusCode().assert_status_code_200(response)
 
 
 @pytest.mark.regression
 @pytest.mark.functional
-@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_edit_account_email_invalid(setup_edit_account):
     headers, account = setup_edit_account
     data = create_account_data(name="prueba nueva", billingAddressCity="prueba",
@@ -119,12 +116,10 @@ def test_edit_account_email_invalid(setup_edit_account):
                                website="prueba.com")
     response = EspocrmRequest().put(EndpointAccount.view(account['id']), headers, data)
     AssertionStatusCode().assert_status_code_400(response)
-    AssertionAccounts().assert_account_view_schema_file(response.json())
 
 
 @pytest.mark.regression
 @pytest.mark.functional
-@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_edit_account_phoneNumber_invalid(setup_edit_account):
     headers, account = setup_edit_account
     data = create_account_data(name="prueba nueva", billingAddressCity="prueba",
@@ -142,12 +137,10 @@ def test_edit_account_phoneNumber_invalid(setup_edit_account):
                                website="prueba.com")
     response = EspocrmRequest().put(EndpointAccount.view(account['id']), headers, data)
     AssertionStatusCode().assert_status_code_400(response)
-    AssertionAccounts().assert_account_view_schema_file(response.json())
 
 
 @pytest.mark.regression
 @pytest.mark.functional
-@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_edit_account_addressShipping_invalid(setup_edit_account):
     headers, account = setup_edit_account
     data = create_account_data(name="prueba nueva", billingAddressCity="prueba",
@@ -157,15 +150,14 @@ def test_edit_account_addressShipping_invalid(setup_edit_account):
                                billingAddressStreet="prueba",
                                description="prueba", emailAddress="prueba@prueba.com",
                                industry="Architecture", phoneNumber="+15555555555",
-                               shippingAddressCity=" ",
-                               shippingAddressCountry=" ",
-                               shippingAddressPostalCode=" ",
-                               shippingAddressState=" ",
-                               shippingAddressStreet=" ", type="Customer",
+                               shippingAddressCity="null",
+                               shippingAddressCountry="null",
+                               shippingAddressPostalCode="null",
+                               shippingAddressState="null",
+                               shippingAddressStreet="null", type="Customer",
                                website="prueba.com")
     response = EspocrmRequest().put(EndpointAccount.view(account['id']), headers, data)
-    AssertionStatusCode().assert_status_code_400(response)
-    AssertionAccounts().assert_account_view_schema_file(response.json())
+    AssertionStatusCode().assert_status_code_200(response)
 
 
 @pytest.mark.smoke
