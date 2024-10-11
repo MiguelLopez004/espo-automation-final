@@ -62,34 +62,25 @@ def generate_contact_data():
     return json.dumps(contact_data, indent=4)
 
 
-def create_contact_data(accountId=None, accountIsInactive=None, accountName=None, accountsIds=None,
-                        accountsNames=None, addressCity=None, addressCountry=None, addressPostalCode=None,
-                        addressState=None, addressStreet=None, assignedUserId=None, assignedUserName=None,
+def create_contact_data(addressCity=None, addressCountry=None, addressPostalCode=None,
+                        addressState=None, addressStreet=None,
                         description=None, emailAddress=None, firstName=None, lastName=None, phoneNumber=None,
-                        salutationName=None, teamsIds=None, teamsNames=None):
+                        salutationName=None):
     contact_data = {
-        "accountId": accountId,
-        "accountIsInactive": accountIsInactive,
-        "accountName": accountName,
-        "accountsIds": accountsIds,
-        "accountsNames": accountsNames,
         "addressCity": addressCity,
         "addressCountry": addressCountry,
         "addressPostalCode": addressPostalCode,
         "addressState": addressState,
         "addressStreet": addressStreet,
-        "assignedUserId": assignedUserId,
-        "assignedUserName": assignedUserName,
         "description": description,
         "emailAddress": emailAddress,
         "firstName": firstName or fake.first_name(),
         "lastName": lastName or fake.last_name(),
         "salutationName": salutationName or random.choice(["Mr.", "Mrs.", "Ms.", "Dr."]),
         "phoneNumber": phoneNumber,
-        "teamsIds": teamsIds,
-        "teamsNames": teamsNames,
     }
 
     contact_data = {key: value for key, value in contact_data.items() if value is not None}
+    contact_data = {key: (None if value == "null" else value) for key, value in contact_data.items()}
 
     return json.dumps(contact_data, indent=4)

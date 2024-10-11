@@ -34,7 +34,10 @@ def setup_add_account(get_headers):
     yield headers, created_accounts
 
     for account in created_accounts:
-        AccountCall().delete(headers, account['id'])
+        if 'id' in account:  # Verifica si 'id' está en el diccionario
+            AccountCall().delete(headers, account['id'])
+        else:
+            print(f"El contacto no tiene 'id': {account}")
 
 
 @pytest.fixture(scope="function")

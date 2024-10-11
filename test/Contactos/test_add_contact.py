@@ -89,7 +89,6 @@ def test_add_contact_firstName_null(setup_add_contact):
 
 @pytest.mark.regression
 @pytest.mark.functional
-@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_add_contact_lastName_null(setup_add_contact):
     headers, created_contacts = setup_add_contact
     data = create_contact_data(lastName="null")
@@ -101,7 +100,6 @@ def test_add_contact_lastName_null(setup_add_contact):
 
 @pytest.mark.regression
 @pytest.mark.functional
-@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_add_contact_phoneNumber_invalid(setup_add_contact):
     headers, created_contacts = setup_add_contact
     data = create_contact_data(phoneNumber="+1794565sss4564")
@@ -113,7 +111,6 @@ def test_add_contact_phoneNumber_invalid(setup_add_contact):
 
 @pytest.mark.regression
 @pytest.mark.functional
-@pytest.mark.xfail(reason="This test case is expected to fail due to known issue.", condition=True)
 def test_add_contact_emailAddress_invalid(setup_add_contact):
     headers, created_contacts = setup_add_contact
     data = create_contact_data(emailAddress="one@on")

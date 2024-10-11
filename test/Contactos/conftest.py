@@ -23,7 +23,6 @@ def setup_teardown_list_contacts(get_headers):
 
     yield headers, contact1, contact2
 
-
     ContactCall().delete(headers, contact1['id'])
     ContactCall().delete(headers, contact2['id'])
 
@@ -35,7 +34,10 @@ def setup_add_contact(get_headers):
     yield headers, created_contacts
 
     for contact in created_contacts:
-        ContactCall().delete(headers, contact['id'])
+        if 'id' in contact:  # Verifica si 'id' está en el diccionario
+            ContactCall().delete(headers, contact['id'])
+        else:
+            print(f"El contacto no tiene 'id': {contact}")
 
 
 @pytest.fixture(scope="function")
